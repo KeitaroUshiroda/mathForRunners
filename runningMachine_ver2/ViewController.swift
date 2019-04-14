@@ -72,8 +72,6 @@ class ViewController: UIViewController {
             if currentTime > recordTime + 1.0{
                 recordTime = currentTime
                 count = count + 1
-//                print("count is:")
-//                print(count)
                 makeQuiz()
                 countLabel.text = "Q" + String(count)
             }
@@ -114,7 +112,6 @@ class ViewController: UIViewController {
         default:
             fatalError()
         }
-        //quizLabel.text = text
         testText = text
     }
 }
