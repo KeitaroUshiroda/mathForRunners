@@ -22,6 +22,11 @@ class ViewController: UIViewController {
     @IBOutlet weak var totalTimeLabel: UILabel!
     @IBOutlet weak var quizLabel: UILabel!
     @IBOutlet weak var countLabel: UILabel!
+    @IBOutlet weak var firstCountLabel: UILabel!
+    @IBOutlet weak var secondCountLabel: UILabel!
+    @IBOutlet weak var thirdCountLabel: UILabel!
+    @IBOutlet weak var forthCountLabel: UILabel!
+    @IBOutlet weak var fifthCountLabel: UILabel!
     
     @IBAction func startButton(_ sender: Any) {
         startTime()
@@ -41,6 +46,7 @@ class ViewController: UIViewController {
     }
     override func viewDidLoad() {
         super.viewDidLoad()
+        resetColor()
         totalTimeLabel.text = "00:00"
         remainTimeLabel.text = "PUSH START BUTTON"
         countLabel.text = "Q"
@@ -81,6 +87,22 @@ class ViewController: UIViewController {
             quizLabel.text = testText
             sumBefore = ""
         }
+        switch fiveSecCount {
+        case 0:
+            resetColor()
+        case 1:
+            fifthCountLabel.backgroundColor = .red
+        case 2:
+            forthCountLabel.backgroundColor = .red
+        case 3:
+            thirdCountLabel.backgroundColor = .red
+        case 4:
+            secondCountLabel.backgroundColor = .red
+        case 5:
+            firstCountLabel.backgroundColor = .red
+        default:
+            fatalError()
+        }
     }
     
     func makeQuiz() {
@@ -113,5 +135,13 @@ class ViewController: UIViewController {
             fatalError()
         }
         testText = text
+    }
+    
+    func resetColor() -> Void {
+        firstCountLabel.backgroundColor = .clear
+        secondCountLabel.backgroundColor = .clear
+        thirdCountLabel.backgroundColor = .clear
+        forthCountLabel.backgroundColor = .clear
+        fifthCountLabel.backgroundColor = .clear
     }
 }
